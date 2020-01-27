@@ -1,0 +1,20 @@
+server:
+  port: 9093
+
+spring:
+  application:
+    name: springcloud-eureka-demo-replicas
+  security:
+    user:
+      name: demo
+      password: demo123456
+
+eureka:
+  instance:
+    hostname: eureka-c.scdemo.com
+    preferIpAddress: false
+  client:
+    serviceUrl:
+      defaultZone: http://demo:demo123456@eureka-a.scdemo.com:9091/eureka, http://demo:demo123456@eureka-b.scdemo.com:9092/eureka
+      register-with-eureka: true
+      fetch-registry: true
